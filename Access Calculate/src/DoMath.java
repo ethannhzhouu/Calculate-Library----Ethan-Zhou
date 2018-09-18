@@ -13,6 +13,16 @@ public class DoMath {
 		System.out.println(Calculate.toDegrees(3.14));
 		System.out.println(Calculate.toRadians(180));
 		System.out.println(Calculate.discriminant(2,4,6));
+		System.out.println(Calculate.toImproperFrac(2,3,4));
+		System.out.println(Calculate.toMixedNum(7,3));
+		System.out.println(Calculate.foil(2, 3, 6, -7, "x"));
+		System.out.println(Calculate.isDivisibleBy(5,3));
+		System.out.println(Calculate.absValue(2));
+		System.out.println(Calculate.max(4, 6));
+		System.out.println(Calculate.max(4, 6, 8));
+		System.out.println(Calculate.min(4, 6));
+		System.out.println(Calculate.round2(5.5866));
+		System.out.println(Calculate.exponent(5.2, 2));
 	}
 
 }
