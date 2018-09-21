@@ -127,9 +127,10 @@ public class Calculate {
 			}
 				
 			}
+		// returns whether or not a number is prime
 			public static boolean isPrime (int num) {
 				boolean divisible;
-				boolean prime = true;
+				boolean prime = false;
 				if (num > 1) {
 					for (int i = 2; i < num; i++) {
 						divisible = Calculate.isDivisibleBy(num, i);
@@ -140,12 +141,6 @@ public class Calculate {
 							prime = true;
 						}						
 						}
-				}
-				if (num == 1) {
-					prime = true;
-				}
-				else if (num == 0) { 
-					prime = false;
 				}
 				return prime;
 			}
