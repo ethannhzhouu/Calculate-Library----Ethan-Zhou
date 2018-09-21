@@ -127,6 +127,8 @@ public class Calculate {
 				
 			}
 			public static boolean isPrime (int num) {
+				
+			}
 		}
 	}
 
