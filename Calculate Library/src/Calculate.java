@@ -124,11 +124,30 @@ public class Calculate {
 					answer = answer * i;
 				}
 				return answer; 
+			}
 				
 			}
 			public static boolean isPrime (int num) {
-				
+				boolean divisible;
+				boolean prime = true;
+				if (num > 1) {
+					for (int i = 2; i < num; i++) {
+						divisible = Calculate.isDivisibleBy(num, i);
+						if (divisible == true) { 
+							prime = false;
+						}
+						else {
+							prime = true;
+						}						
+						}
+				}
+				if (num == 1) {
+					prime = true;
+				}
+				else if (num == 0) { 
+					prime = false;
+				}
+				return prime;
 			}
-		}
-	}
+}
 
