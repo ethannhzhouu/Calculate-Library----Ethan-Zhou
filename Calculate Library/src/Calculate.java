@@ -102,6 +102,31 @@ public class Calculate {
 		double num2= (num1 + .005)*100;
 		double num3 = (int)num2;	
 			return num3/100;
-			
 	}
-}
+	//returns value with an exponent
+		public static double exponent (double base, int exponent){
+			double answer = 1;
+			for (int i = 0; i < exponent; i++){
+				answer = answer * base;
+			}
+			return answer;
+			}
+		// Returns the factorial of a specific integer
+		public static int factorial(int num) {
+			int answer = 1;
+			//factorial of zero is one
+			if(num == 0) { 
+				return answer; 
+			}
+			else {
+				// Multiplying smaller to bigger numbers, increment by one and multiply until reaching the value of num
+				for (int i = 1; i <= num; i++) {
+					answer = answer * i;
+				}
+				return answer; 
+				
+			}
+			public static boolean isPrime (int num) {
+		}
+	}
+
