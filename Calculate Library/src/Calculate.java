@@ -143,22 +143,40 @@ public class Calculate {
 }	
 			// returns greatest common factor of two numbers
 				public static int gcf (int num1, int num2) {
-				int num3 = 1; //placeholder for answer
+				int ans = 1; //placeholder for answer
 						for (int i = Calculate.min(num1, num2); i > 0; i--) { // use the minimum to find gcf, not max
 							if (Calculate.max(num1, num2) % i == 0 && Calculate.min(num1,num2) % i == 0) { 
 								//test numbers using decrementing until remainder is 0 for the higher and lower number
-								if (i >= num3) {
-									num3 = i;
+								if (i >= ans) {
+									ans = i;
 								}
 							}
 						}
-						return num3;
+						return ans;
 						}
-				// returns the square root of a number
-				public static double sqrt (double num) {
+				//returns square root of a specific number
+				public static double sqrt(double num){
+					double guess;
 					double root;
-					double 
-					
+					if (num == 0){
+						root = 0;
+						//square root of 0 is 0
+					}
+					if (num < 0){
+						throw new IllegalArgumentException ("Square root of negative number is an imaginary number");
+					}
+					else if (num > 0){
+						root = num/2;
+						do {
+							guess = root;
+							root = ((num/guess) + guess)/2; // Newton's method
+						}
+						while ((guess - root) != 0);
+					}
+					else {
+						root = num;
+					}
+					return round2(root);
 				}
 			}
 
