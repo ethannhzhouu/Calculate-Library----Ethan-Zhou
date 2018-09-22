@@ -140,6 +140,27 @@ public class Calculate {
 				}
 			}
 				return prime;
-}
-}
+}	
+			// returns greatest common factor of two numbers
+				public static int gcf (int num1, int num2) {
+				int num3 = 1; //placeholder for answer
+						for (int i = Calculate.min(num1, num2); i > 0; i--) { // use the minimum to find gcf, not max
+							if (Calculate.max(num1, num2) % i == 0 && Calculate.min(num1,num2) % i == 0) { 
+								//test numbers using decrementing until remainder is 0 for the higher and lower number
+								if (i >= num3) {
+									num3 = i;
+								}
+							}
+						}
+						return num3;
+						}
+				// returns the square root of a number
+				public static double sqrt (double num) {
+					double root;
+					double 
+					
+				}
+			}
+
+
 
