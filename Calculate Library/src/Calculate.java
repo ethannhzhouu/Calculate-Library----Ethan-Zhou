@@ -37,7 +37,7 @@ public class Calculate {
 	}
 	//Converts improper fraction to a mixed number
 	public static String toMixedNum(int numerator, int denominator) {
-		return numerator / denominator + " " + numerator % denominator + "/" + denominator;
+		return numerator / denominator + "_" + numerator % denominator + "/" + denominator;
 	}
 	//Multiplies two expressions together using FOIL
 	public static String foil(int num1, int num2, int num3, int num4, String x) {
@@ -104,4 +104,80 @@ public class Calculate {
 			return num3/100;
 			
 	}
-}
+	//returns value with an exponent
+			public static double exponent (double base, int exponent){
+				double answer = 1;
+				for (int i = 0; i < exponent; i++){
+					answer = answer * base;
+				}
+				return answer;
+				}
+			
+	// Returns the factorial of a specific integer
+			public static int factorial(int num) {
+				int answer = 1;
+				//factorial of zero is one
+				if(num == 0) { 
+					return answer; 
+				}
+				else {
+					// Multiplying smaller to bigger numbers, increment by one and multiply until reaching the value of num
+					for (int i = 1; i <= num; i++) {
+						answer = answer * i;
+					}
+					return answer; 
+				}	
+				}
+	// returns whether or not a number is prime
+			public static boolean isPrime (int num) {
+				boolean divisible;
+				boolean prime = true;
+					if (num > 1) {
+						for (int i = 2; i < num; i++) {
+								divisible = Calculate.isDivisibleBy(num, i);
+								if (divisible == true) { 
+									prime = false;
+									}	
+							}
+						}
+							return prime;
+			}
+			// returns greatest common factor of two numbers
+			public static int gcf (int num1, int num2) {
+			int ans = 1; //placeholder for answer
+					for (int i = Calculate.min(num1, num2); i > 0; i--) { // use the minimum to find gcf, not max
+						if (Calculate.max(num1, num2) % i == 0 && Calculate.min(num1,num2) % i == 0) { 
+							//test numbers using decrementing until remainder is 0 for the higher and lower number
+							if (i >= ans) {
+								ans = i;
+							}
+						}
+					}
+					return ans;
+					}
+//returns square root of a specific number
+	public static double sqrt(double num){
+			double guess;
+			double root;
+				if (num == 0){
+					root = 0;
+					//square root of 0 is 0
+				}
+				if (num < 0){
+					throw new IllegalArgumentException ("Square root of negative number is an imaginary number");
+				}
+				else if (num > 0){
+					root = num/2;
+					do {
+						guess = root;
+						root = ((num/guess) + guess)/2; // Newton's method
+					}
+					while ((guess - root) != 0);
+				}
+				else {
+					root = num;
+				}
+				return round2(root);
+			}
+		}
+
