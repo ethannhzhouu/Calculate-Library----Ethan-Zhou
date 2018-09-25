@@ -33,19 +33,28 @@ public class Calculate {
 	}
 	//Converts mixed number to improper fraction
 	public static String toImproperFrac(int whole, int numerator, int denominator) {
+		if (denominator < 0) {
+			throw new IllegalArgumentException ("Denominator cannot be 0, bc Cannot divide by 0");
+		}
 		return ((whole*denominator) + numerator) + "/" + denominator;
+		
 	}
 	//Converts improper fraction to a mixed number
 	public static String toMixedNum(int numerator, int denominator) {
+		if (denominator < 0) {
+			throw new IllegalArgumentException ("Denominator cannot be 0, bc cannot divide by 0");
+		}
 		return numerator / denominator + "_" + numerator % denominator + "/" + denominator;
 	}
 	//Multiplies two expressions together using FOIL
-	public static String foil(int num1, int num2, int num3, int num4, String x) {
-		return num1 * num3 + "x^2 " + "+ " + (num1 * num4 + num2 * num3)+ "x " + "+ " + (num2 * num4);
+	public static String foil(int num1, int num2, int num3, int num4, String letter) {
+		return num1 * num3 + letter + "^2 " + "+ " + (num1 * num4 + num2 * num3)+ letter + " " + "+ " + (num2 * num4);
 	}
 	//Determines if a number is divisible
 	public static boolean isDivisibleBy(int num1, int num2) {
-		
+		if (num1 == 0 || num2 == 0) {
+			throw new IllegalArgumentException ("Cannot determine if number is divisible by 0");
+		}
 		if (num1 % num2 == 0) {
 		return true;
 	}
@@ -99,14 +108,27 @@ public class Calculate {
 	}
 	//Rounds a number to two decimal places
 	public static double round2(double num1) {
+		double num3 = 1;
+		if (num1 > 0) { 
 		double num2= (num1 + .005)*100;
-		double num3 = (int)num2;	
+		num3 = (int)num2;	
+		}
+		if (num1 < 0) {
+			double num2= (num1 - .005)*100;
+			num3 = (int)num2;	
+			}
+		if (num1 == 0) {
+			return 0.00;	
+			}
 			return num3/100;
 			
 	}
 	//returns value with an exponent
 			public static double exponent (double base, int exponent){
 				double answer = 1;
+				if (exponent < 0) {
+					throw new IllegalArgumentException ("Algorithm won't work if exponent is negative");
+				}
 				for (int i = 0; i < exponent; i++){
 					answer = answer * base;
 				}
@@ -116,6 +138,9 @@ public class Calculate {
 	// Returns the factorial of a specific integer
 			public static int factorial(int num) {
 				int answer = 1;
+				if (num < 0) {
+					throw new IllegalArgumentException ("Can't do factorial of negative number");
+				}
 				//factorial of zero is one
 				if(num == 0) { 
 					return answer; 
@@ -140,11 +165,20 @@ public class Calculate {
 									}	
 							}
 						}
+					if (num < 0) {
+						throw new IllegalArgumentException ("Can't determine if negatives are prime");
+					}
 							return prime;
 			}
 			// returns greatest common factor of two numbers
 			public static int gcf (int num1, int num2) {
 			int ans = 1; //placeholder for answer
+			if (num1 < 0) {
+				throw new IllegalArgumentException ("Can't determine gcf if num is negative, returns the wrong greatest");
+			}
+			if (num2 < 0) {
+				throw new IllegalArgumentException ("Can't determine gcf is num is negative, retuurns the wrong greatest");
+			}
 					for (int i = Calculate.min(num1, num2); i > 0; i--) { // use the minimum to find gcf, not max
 						if (Calculate.max(num1, num2) % i == 0 && Calculate.min(num1,num2) % i == 0) { 
 							//test numbers using decrementing until remainder is 0 for the higher and lower number
@@ -172,7 +206,7 @@ public class Calculate {
 						guess = root;
 						root = ((num/guess) + guess)/2; // Newton's method
 					}
-					while ((guess - root) != 0);
+					while ((guess - root) != 0); 
 				}
 				else {
 					root = num;
