@@ -146,7 +146,7 @@ public class Calculate {
 					return answer; 
 				}
 				else {
-					// Multiplying smaller to bigger numbers, increment by one and multiply until reaching the value of num
+					// Multiplying smaller to bigger numbers increment by one and multiply until reaching the value of num
 					for (int i = 1; i <= num; i++) {
 						answer = answer * i;
 					}
