@@ -141,7 +141,7 @@ public class Calculate {
 				if (num < 0) {
 					throw new IllegalArgumentException ("Can't do factorial of negative number");
 				}
-				//factorial of zero is one
+				//factorial of zero is one.
 				if(num == 0) { 
 					return answer; 
 				}
