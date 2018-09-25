@@ -1,4 +1,4 @@
-/* This class contains methods that perform various math operations
+/* This class contains methods that perform various math operations.
  * @author Ethan Zhou
  * @version September 6, 2018
  */
